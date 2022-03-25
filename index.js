@@ -1,7 +1,28 @@
 let arraySize = 10;
 let query = [[1,5,3],[4,8,7],[6,9,1]]
 
+function arrayManipulation(n, queries) {
+    // Write your code here
+    let newArray = Array(n).fill(0);
 
+    for (let i = 0; i < queries.length; i++) {
+
+      for (let j = queries[i][0]-1; j < queries[i][1]; j++) {
+
+        newArray[j] += queries[i][2];
+      }
+    }
+
+  return Math.max(...newArray)
+    
+}
+
+
+console.log(arrayManipulation(arraySize, query));
+
+
+
+/*
 function arrayManipulation(n, queries) {
     // Write your code here
     let newArray = Array(n).fill(0);
@@ -21,5 +42,4 @@ function arrayManipulation(n, queries) {
   return Math.max(...newArray)
     
 }
-
-console.log(arrayManipulation(arraySize, query));
+*/
