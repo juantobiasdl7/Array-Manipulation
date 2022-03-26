@@ -4,13 +4,25 @@ let query = [[1,5,3],[4,8,7],[6,9,1]]
 function arrayManipulation(n, queries) {
     // Write your code here
     let newArray = Array(n).fill(0);
+    let maxValue = 0;
+    let currentValue = 0;
 
     for (let i = 0; i < queries.length; i++) {
+        newArray[queries[i][0]-1] += queries[i][2];
+        newArray[queries[i][1]] -= queries[i][2];
+    }
 
+    for (let i = 0; i < newArray.length; i++) {
+      
+        currentValue += newArray[i];
+      
+        if (currentValue > maxValue){
+          maxValue = currentValue;
+        }
       
     }
 
-  return Math.max(...newArray)
+  return maxValue;
     
 }
 
